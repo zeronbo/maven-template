@@ -64,13 +64,15 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<configuration>
+					<!-- 单元测试不通过不阻止项目正常编译代码 -->
 					<testFailureIgnore>true</testFailureIgnore>
 					<!-- 解决jdk7中执行emma:emma命令时执行失败的问题 -->
 					<argLine>-XX:-UseSplitVerifier</argLine>
 				</configuration>
 			</plugin>
 
-			<!-- 将源代码打成jar包 -->
+			<!-- 将源代码打成jar包,注:生成源代码需执行命令:source:jar(在eclipse、idea中)
+			或 mvn source:jar(在命令行中) -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
